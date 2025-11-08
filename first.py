@@ -77,7 +77,6 @@ def supprimer_commande_produit_client():
     commandes_col.delete_many({"Client": nom, "Produits": {"$regex": produit, "$options": "i"}})
     print("commande supprimee si elle existait.")
 
-
 # 8
 def supprimer_commandes_client():
     nom=input("entrez nom du client:")
@@ -91,19 +90,16 @@ def trier_commandes_par_date():
     for c in commandes:
         print(c)
 
-
 # 10
 def afficher_produits_dispo():
     produits=produits_col.find({"Stock":{"$gt":0}})
     for p in produits:
         print(p)
 
-
 def afficher_tous_produits():
     produits=produits_col.find()
     for p in produits:
         print(p)
-
 
 # 11
 def menu():
@@ -121,26 +117,26 @@ def menu():
         print("10. Quitter")
         choix = input("entrez votre choix:")
 
-        if choix == "1":
+        if choix=="1":
             creer_commande()
-        elif choix == "2":
+        elif choix=="2":
             afficher_tous_produits()
-        elif choix == "3":
+        elif choix=="3":
             afficher_produits_dispo()
-        elif choix == "4":
+        elif choix=="4":
             rechercher_commandes_client()
-        elif choix == "5":
+        elif choix=="5":
             update_produit()
-        elif choix == "6":
+        elif choix=="6":
             supprimer_commande_produit_client()
-        elif choix == "7":
+        elif choix=="7":
             supprimer_commandes_client()
-        elif choix == "8":
+        elif choix=="8":
             ajouter_dispo()
-        elif choix == "9":
+        elif choix=="9":
             trier_commandes_par_date()
-        elif choix == "10":
-            print("Au revoir.")
+        elif choix=="10":
+            print("au revoir.")
             break
         else:
             print("choix invalide.")
